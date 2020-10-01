@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+</head>
+<body>
+    <ul id="navList">
+        <li class="myli">li1</li>
+        <li>li2</li>
+    </ul>
+    <script>
+    //通过id获取到元素
+    var navListDom = document.getElementById("navList");
+    console.log(navListDom);
+
+    //通过class获取到元素的 数组 数组 数组
+    var myliAryDom = navListDom.getElementsByClassName("myli");
+    console.log(myliAryDom);
+    //用数组下标来获取到对应的元素, 之后就可以对元素进行操作 
+    myliAryDom[0].onclick = function(){console.log("点了我")}
+    
+    //通过标签名字获取到元素的  数组 数组  数组
+    var liAryDom = navListDom.getElementsByTagName("li");
+    console.log(liAryDom);
+
+
+
+//     var a = 1;
+//     for(var i =0;i<10;i++){
+//         console.log("cc");
+//     }
+
+//     function add(){
+//         var b = 1;//长期租赁
+//         function plus(){
+//             for(var i =0;i<10;i++){
+//                 b++;
+//             }
+//         }
+
+//         return plus;//指针 0x000111
+//     }
+    
+
+//     var myPlus = add();
+//     myPlus();
+//     //plus();
+
+//     console.log(b);
+
+//  a= 1;
+
+
+//     function add1(a){
+//         console.log(a);
+//         if( a <= 0){
+//             return;
+//         }else add1(a--);
+        
+//     }
+
+//     add1(3);    
+
+
+//     function add(){
+        
+//         //plus只是函数声明，并没有被执行
+//         function plus(){
+//             //这个counter是plus里面的局部变量，出了plus函数，外面就不知道了。
+//             var counter = 0;
+//             counter++;
+//         }
+        
+//         //counter并没有定义 -》 所以这里会报错
+//         console.log(counter);
+//     }
+//     //这里可以执行add方法，因为能找到add声明
+//     add();
+//     //这里不能执行plus方法，因为plus并没有声明
+//     //add里面的plus，只能在add函数里面使用。
+//     plus();
+        
+//     //下面这个是函数关于闭包的用法，注意代码得对比
+//     function add2(){
+//         var counter = 0;
+//         function plus(){
+//             counter++;
+//         }
+//         console.log(counter);
+//         return plus;
+//     }
+//     var myPlus = add();
+//     myPlus();
+    </script>
+</body>
+</html>

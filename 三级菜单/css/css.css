@@ -1,0 +1,181 @@
+body,ul,li{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    
+    height: 750px;
+    background:url(../img/20141023101218_iRwfr.jpeg) no-repeat 100% 100%;
+}
+.top{
+    margin: 30px;
+    min-width: 1500px;
+    background-color: #090723;
+ 
+    margin: 30px auto;
+}
+
+.container{
+    width: 1500px;
+    position: relative;
+
+   
+    margin: auto;
+    background-color: #090723;
+}   
+
+.container::before,.container::after{
+    content: "" ;
+    display: table ;
+    clear: both;
+}
+
+.clearfix::before,.clearfix::after{
+    content: "" ;
+    display: table ;
+    clear: both;
+}
+
+.top .container > ul{
+    list-style-type: none;
+    float: right;
+    height: 40px;
+    width: 1200px;
+    border-top: 1px solid #06414D;
+    margin:142px 20px 0px 0px;
+    background-color:#06414D;
+}
+.top .nav > li{
+    float: left;
+    line-height: 40px;
+    margin: 0 30px;
+}
+.top .nav li   a{
+    display: block;
+    font-size: 18px;
+    line-height: 40px;
+    text-decoration: none;
+    padding: 0px 30px;
+    color: white;
+}
+.top .nav li  a:hover{
+    background-color:#f2f2f2;
+    color: #06414D;
+}
+
+.img1{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    vertical-align: middle;
+    position: absolute;
+    left: 0px;
+    top: 60px;
+}
+.img2{
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    left: -20px;
+    top: 50px;
+    
+}
+.img{
+    float: left;
+    width: 240px;
+    margin-top:50px; 
+}
+
+
+
+/* 二级 */
+
+.item{
+    position: relative;
+    display: none;
+    width: 130px;
+}
+.item ul{
+ 
+    border: #090723 1px solid;
+   border-top:none;
+   
+    list-style-type: none;
+    
+}
+
+ .nav .item .item-list a{
+    color: #090723;
+
+}
+
+.nav .item .item-list a:hover{
+    background-color: #06414D;
+    color: white;
+}
+
+.nav .item-list .item2{
+    position: absolute;
+    left: 129px;
+    top: 0px;
+
+}
+.item2{
+    display: none;
+}
+/* 
+google */
+
+.nav .google-item{
+    position: relative;
+    display: none;/*////**/
+}
+.nav .google-item ul{
+   
+    border:1px #090723  solid;
+    border-top:none;
+   
+    list-style-type: none;
+    
+}
+
+.top .nav .google-item li a{
+    color: #090723;
+
+}
+
+.top .nav .google-item .google-list a:hover{
+    background-color: #06414D;
+    color: white;
+}
+
+.top .nav .show >div  {
+    display: block ;
+    backbackground-color: white ; 
+    color: #06414D ;
+    
+}
+
+.top .container .nav .show >a{
+    background-color: white ;
+    color: #06414D ;
+}
+/*三级*/
+
+.nav .google-item ul div{
+    display: none;
+    position:absolute;
+    top:-1px;
+    left: 150px;
+    border: #090723 1px solid;
+}
+
+.nav .google-item ul div a{
+    display: block;
+    font-size: 18px;
+    line-height: 40px;
+    text-decoration: none;
+    padding: 0px 30px;
+    color: #090723;
+}

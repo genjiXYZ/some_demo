@@ -1,0 +1,157 @@
+ul {
+    width: 60%;
+    margin: 0 auto;
+    min-width: 600px;
+    height: 1000px;
+    display: flex;
+    font-size: 0px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+ul li {
+    
+    position: relative;
+    width: 30%;
+    height: 200px;
+    display: inline-block;
+    list-style: none;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius:10px;
+    background-color:  rgba(0,0,0,0.8);
+    overflow: hidden;
+   
+}
+
+ #cover {
+    position: absolute;
+    bottom: 0;
+    
+    width: 100%;
+    height: 45px;
+    transform: translateY(100%);
+
+
+    
+
+}
+
+.pic{
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+    transform: translateY(100%);
+    transition: transform 0.8s ease;
+    
+
+}
+.cover .font{
+    color: azure;
+    font-size: 16px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+
+} 
+
+.picmove .pic{
+    transform: translateY(0);
+}
+
+ul li:nth-child(2) div,
+ul li:nth-child(5) div,
+ul li:nth-child(8) div
+{
+    transition-delay: 0.1s; 
+}
+ul li:nth-child(3) div,
+ul li:nth-child(6) div,
+ul li:nth-child(9) div{
+    transition-delay: 0.2s; 
+}
+
+li .cover.in-top,
+li .cover.out-top{
+    transform: translate(0,-100%)
+}
+li .cover.in-bottom,
+li .cover.out-bottom{
+    transform: translate(0,100%)
+}
+
+
+li .cover.in-right,
+li .cover.out-right{
+    transform: translate(100%)
+}
+
+li .cover.in-left,
+li .cover.out-left{
+    transform: translate(-100%)
+}
+/* 
+li:hover .cover{
+    transform: translateY(0);
+    
+}
+ */
+li .cover.in-top,
+li .cover.in-bottom,
+li .cover.in-left,
+li .cover.in-right{
+    animation: enter 0.2s linear forwards;
+}
+
+@keyframes  enter{
+    100%{
+        transform: translate(0,0);    }
+}
+
+
+li .cover.out-top{
+ animation: out-top 0.2s linear;
+}
+@keyframes  out-top{
+    0%{
+        transform: translate(0,0); 
+    }
+    100%{
+        transform: translate(0,-100%);    }
+}
+
+li .cover.out-bottom{
+    animation: out-bottom 0.2s linear;
+   }
+   @keyframes  out-bottom{
+       0%{
+           transform: translate(0,0); 
+       }
+       100%{
+           transform: translate(0,100%);    }
+   }
+   
+   li .cover.out-left{
+    animation: out-left 0.2s linear;
+   }
+   @keyframes  out-left{
+       0%{
+           transform: translate(0,0); 
+       }
+       100%{
+           transform: translate(-100%,0);   
+       }
+   }
+
+
+
+   li .cover.out-right{
+    animation: out-right 0.2s linear;
+   }
+   @keyframes  out-right{
+       0%{
+           transform: translate(0,0); 
+       }
+       100%{
+           transform: translate(100%,0);   
+       }
+   }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #demo{
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 100px;
+            height:100px;
+            background: orange;
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo">demo</div>
+    <script>
+        var oDemo = document.getElementById('demo');
+        var manageCookie = {
+            setCookie: function (key, value, date) {//增，改
+                var oDate = new Date();
+                oDate.setDate(oDate.getDate() + date);
+                console.log(oDate);
+                document.cookie = key + '=' + value + ';expires=' + oDate;
+                return this;
+            },
+            removeCookie: function (key) {//删
+                this.setCookie(key, '', -1 );
+                return this;
+            },
+            getCookie: function (key, callback) {//查
+                
+                var allCookie = document.cookie;
+                var cookieArr = allCookie.split('; ');
+                cookieArr.forEach(function (ele) {
+                    var item = ele.split('=');
+                    if(item[0] == key) {
+                        callback?callback(item[1]):'';
+                    }
+                })
+                return this; 
+            }
+        }
+        var dragFun = {
+            init: function () {
+                //入口函数
+                this.dom = oDemo;
+                manageCookie.getCookie('position', function (data) {
+                    if(data) {
+                        var dataArr = data.split('&');
+                        oDemo.style.left = dataArr[0] + 'px';
+                        oDemo.style.top = dataArr[1] + 'px';
+                    }   
+                })
+                dragFun.bindEvent();
+            },
+            bindEvent: function() {
+                //绑定事件
+                this.dom.onmousedown = this.oDemoDown.bind(this);
+            },
+            oDemoDown: function () {
+                //鼠标按下触发的函数
+                this.disX = event.clientX - this.dom.offsetLeft;
+                this.disY = event.clientY - this.dom.offsetTop;
+                document.onmousemove = this.oDemoMove.bind(this);
+                document.onmouseup = this.oDemoUp.bind(this);
+            },
+            oDemoMove: function () {
+                //鼠标移动
+                this.newLeft = event.clientX - this.disX;
+                this.newTop = event.clientY - this.disY;
+                this.dom.style.left = this.newLeft + 'px';
+                this.dom.style.top = this.newTop + 'px';
+            },
+            oDemoUp: function () {
+                //鼠标抬起
+                document.onmousemove = null;
+                document.onmouseup = null;
+
+                var positionStr = this.newLeft + '&' + this.newTop;
+
+                manageCookie.setCookie('position', positionStr, 3);
+            }
+        }
+        dragFun.init();
+
+
+
+    </script>
+</body>
+</html>

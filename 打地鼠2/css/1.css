@@ -1,0 +1,124 @@
+.box{
+    position: relative;
+    background: url("../img/bg.png");
+    width: 750px;
+    height: 550px;
+    cursor: none;
+}
+.hammer img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -35px;
+    margin-left: -45px;
+    width: 98px;
+    height: 77px;
+    z-index: 2;
+}
+div[class^=hold]{
+    width: 102px;
+    height: 103px;
+   
+    overflow: hidden;
+}
+
+.hold1{
+     position: absolute;
+     top: 150px;
+     left: 140px;
+}
+.hold2{
+    
+     position: absolute;
+     top: 150px;
+     left: 330px;
+}
+.hold3{
+    
+     position: absolute;
+     top: 150px;
+     left: 530px;
+}
+ .hold4{
+    
+     position: absolute;
+     top: 240px;
+     left: 116px;
+}
+.hold5{
+    
+     position: absolute;
+     top: 240px;
+     left: 334px;
+}
+.hold6{
+    
+     position: absolute;
+     top: 240px;
+     left: 530px;
+}
+.hold7{
+    
+     position: absolute;
+     top: 335px;
+     left: 110px;
+}
+.hold8{
+    
+     position: absolute;
+     top: 340px;
+     left: 335px;
+}
+.hold9{
+    
+     position: absolute;
+     top: 340px;
+     left: 550px;
+}
+
+
+
+div[class^=hold] img{
+    width: 102px;
+    height: 103px;
+    position: absolute;
+    left: 0;
+    top: 103px;
+}
+.grade{
+    width: 100px;
+    height: 20px;
+   
+    position: absolute;
+    top: 195px;
+    left: 229px;
+    text-indent: 12px;
+}
+.when{
+    width: 120px;
+    height: 20px;
+    background-color: blue;
+
+    position: absolute;
+    top: 195px;
+    left: 483px;
+    text-indent: 12px;
+}
+.star{
+    position: absolute;
+
+    top:120px;
+    left:30px ;
+    
+    width:100px;
+    height: 60px;
+    font-size: 40px;
+}
+
+.god{
+    float: left;
+}
+.god img{
+    width: 80px;
+    height: 90px;
+}

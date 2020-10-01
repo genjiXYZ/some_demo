@@ -1,0 +1,73 @@
+FN
+
+1.音量:
+	方向键 上下  在音量栏上监听滚轮   滚轮上下  控制音量 (同步显示音量  显示栏  设定后延迟1s 消失  ) 
+
+
+	左右控制进度 (  暂停  增添0.8s 生效延迟 以免出现n倍速播放效果)
+
+2.循环:
+	 单曲 顺序  最简单的伪随机(只将此歌单未播放过的歌曲 随机播放) 
+
+		bug    当此歌单 最后一首歌 可能和 下一歌单   第一首 重复播放
+				
+
+
+3.上一首/下一首 :
+	 在单曲循环和 顺序循环 模式下    上一首/下一首 的 方式都为 顺序循环 的下一曲 
+	  随机的时候  为 随机的下一首
+	
+
+未完成
+
+
+伪随机播放模式下的 上一曲  未完成
+
+
+歌单列表
+
+歌词
+
+整理优化代码
+
+
+
+
+
+报错和记录:
+
+深拷贝 和 浅拷贝 的区别         !!
+
+if  elseif 和 if if 
+
+
+xx.style.heigth 载入时应 设置下   以免 xx.style.heigth = ""
+
+
+
+window.onload   下一曲 时候需要重新 设置 duration 
+audio.canplay	由于audio.load  不需要重新设置
+
+
+音量栏 clearTimtout(t)................................setTimeout(function,num)
+
+
+
+在拖拽进度条时 要将 进度条附近的 的元素 user-select :none   ,
+报错信息
+The provided double value is non-finite.(提供的双精度值非有限)
+
+
+一开始以为 数据的类型不对   瞎jb改好多   如   toFixed(2)  parseInt  Math.floor   坑+1;
+
+
+tip  
+
+用js 控制 animation-play-state 时 要加 webkit(没有-) 而且要大小写
+ex:
+musicBg.style.WebkitAnimationPlayState = "running"
+
+
+
+
+

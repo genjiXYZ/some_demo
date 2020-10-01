@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 970px;
+}
+
+.ad{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 163px;
+}
+
+.bg{
+    width: 400px;
+    height: 163px;
+}
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}

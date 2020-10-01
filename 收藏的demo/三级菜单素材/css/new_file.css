@@ -1,0 +1,72 @@
+/* body ul li div{
+ padding: 0;
+ margin: 0;
+}
+
+.container::before,.container::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.container{
+    border: 1px solid black;
+    width: 1226px;
+    margin: 0 auto;
+    
+}
+/* 兼容ie */
+/* .clearfix{
+    zoom: 1;
+} */
+/*  ---------------*/
+
+.top{
+    
+   /* min-width: 1000px; */  /* 防止留白 虽然没颜色没啥用 */
+	width:1900px;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+/* ul{
+ 
+    width: 900px;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+    list-style-type: none;
+    background-color: cornflowerblue;
+    float: left;
+    border-top: 1px solid cornflowerblue;
+    border: 1px solid black;
+} */
+/* .top li{
+    display: block;
+    float: left;
+       /* 写完后改成20% */
+    
+    
+    margin: 0 20px;
+} */
+
+/* .top li a{
+   display: block;
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    line-height: 30px;
+    height: 30px;
+    padding: 0 30px;
+    background-color: cornflowerblue;
+
+}
+.top li a:hover{
+    background-color: white;
+    color:  cornflowerblue;
+} */ */
+
+
+
+.top{
+	width: 1900px;
+}
