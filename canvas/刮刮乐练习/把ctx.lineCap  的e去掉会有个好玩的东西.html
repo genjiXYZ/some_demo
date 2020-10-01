@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/css.css">
+    <title>Page Title</title>
+    <style>
+        canvas {
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="1000" height="1000" id="myCanvas">
+
+
+
+    </canvas>
+
+    <script>
+        var myCanvas = document.getElementById('myCanvas')
+        var ctx = myCanvas.getContext('2d')
+        var w = myCanvas.width;
+        var h = myCanvas.height;
+        var lastPosition = {};
+
+        var img = new Image();
+
+        function init() {
+            var R = Math.random();
+            if (R < 0.5) {
+                img.src = './img/123.jpg';
+            } else {
+                img.src = './img/456.jpg';
+            }
+
+            img.onload = function () {
+                myCanvas.style.backgroundImage = 'url(' + img.src + ')';
+                //鼠标按下
+                myCanvas.addEventListener('mousedown', down);
+            }
+            ctx.beginPath();
+            ctx.fillStyle = '#aaa'
+            ctx.fillRect(0, 0, w, h);
+            ctx.globalCompositeOperation = 'destination-out';
+        }
+
+        init();
+
+        function down(e) {
+            lastPosition.x = e.clientX - myCanvas.offsetLeft;
+            lastPosition.y = e.clientY - myCanvas.offsetTop;
+
+
+            ctx.beginPath();
+            ctx.arc(lastPosition.x, lastPosition.y, 60, 0, Math.PI * 2)
+            ctx.closePath();
+            ctx.fill();
+            myCanvas.addEventListener('mousemove', move);
+            document.body.addEventListener('mouseup', up);
+        }
+
+        function move(e) {
+            var x = e.clientX - myCanvas.offsetLeft;
+            var y = e.clientY - myCanvas.offsetTop;
+
+            ctx.beginPath();
+            ctx.moveTo(lastPosition.x, lastPosition.y);
+            ctx.lineTo(x,y)
+            ctx.lineWidth = 120;
+            ctx.linCap = 'round'///////把ctx.lineCap  的e去掉会有个好玩的东西
+            ctx.stroke();
+            lastPosition.x = x;
+            lastPosition.y = y;
+
+
+
+        }
+
+        function up() {
+            myCanvas.removeEventListener('mousemove', move);
+            document.body.removeEventListener('mouseup', up);
+            clear();
+        }
+
+        function clear() {
+            var imageData = ctx.getImageData(0, 0, w, h);
+            // var len = ImageData.data.length;
+            var sum = 0;
+            for (var i = 0; i < imageData.data.length; i += 4) {
+                if (imageData.data[i] == 0) {
+                    sum++;
+                }
+                if (sum > w * h * 0.5) {
+                    ctx.clearRect(0, 0, w, h);
+                }
+
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/js.js"></script>
+
+</body>
+
+</html>

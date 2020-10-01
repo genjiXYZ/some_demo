@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <div class="list">
+            <div class="name">
+                <span>php</span>
+                <a href="javascript:;">+</a>
+            </div>
+
+            <div class="name">
+                <span>php</span>
+                <a href="javascript:;">+</a>
+            </div>
+
+            <div class="name">
+                <span>js</span>
+
+                <a href="javascript:;">+</a>
+            </div>
+
+        </div>
+        <div class="selectList">
+            <span id="count">你选了2门课程</span>
+            <div id="listEle"></div>
+        </div>
+
+
+    </div>
+
+
+    <script>
+        class Lesson {
+            constructor() {
+                this.lis = document.querySelectorAll(".list>div")
+                this.countEle = document.getElementById("count")
+                this.listEle = document.getElementById("listEle")
+
+                console.log(this.lis[0].querySelectorAll("span"))
+                // console.log(this.countEle)
+                // console.log(this.listEle)
+
+                this.map = new WeakMap()
+            }
+
+            run() {
+                this.lis.forEach((div) => {
+
+                    console.log(div.querySelector("a"))
+                    div.querySelector("a").addEventListener("click", (event) => {
+                        const a = event.target
+                        // console.log(a)
+                        const status = div.getAttribute("ok")
+                        if (status) {
+                            div.removeAttribute("ok")
+                            this.map.delete(div.querySelector("span"));
+                            a.innerHTML = "+"
+                            a.style.backgroundColor = "red"
+                        } else {
+                            console.log(div.querySelector("span"))
+                            console.log(div.querySelector("span"))
+                            this.map.set(div.querySelector("span"));
+                            div.setAttribute("ok", true)
+                            a.innerHTML = "-"
+                            a.style.backgroundColor = "yellow"
+                        }
+                        // console.log(this.map)
+                        console.log(`_________` + this.map.get(div))
+                        console.log(div)
+                        this.render()
+                    })
+                })
+
+            }
+
+            list() {
+                const span = []
+                this.lis.forEach((item) => {
+                    span.push(item.querySelector("span"))
+
+                })
+                // [...this.lis].reduce((item, div) => {
+                //     // console.log(div)
+                //     console.log(item)
+                //         console.log(this.map.has(div))
+                //     return (item += this.map.get(div))
+
+                // }, "")
+
+
+                const ddd = [...span].reduce((itme, span) => {
+
+                    return this.map.has(span)
+
+                }, '')
+                console.log(ddd)
+
+
+
+                const divs = [...span].filter((span) => {
+
+                    return this.map.has(span)
+
+                }).map((span) => {
+
+                    return `${span.innerHTML}`
+
+                }).join("")
+
+                console.log(divs)
+                return divs
+
+
+
+            }
+            count() {
+                return [...this.lis].reduce((count, div) => {
+                    return (count += this.map.has(div) ? 1 : 0)
+                }, 0)
+            }
+
+            render() {
+                this.countEle.innerHTML = `你选了${this.count()}门课程`;
+
+
+                this.listEle.innerHTML = this.list()
+            }
+
+
+
+        }
+        const les = new Lesson();
+
+        les.run()
+
+
+
+
+        /**
+         * @param {number[]} arr
+         * @param {number} k
+         * @return {number[]}
+         */
+
+
+        // var getLeastNumbers = function (arr, k) {
+        //     let arrlen = arr.length
+        //     if (arrlen == k - 1) {
+        //         return []
+        //     }
+        //     var q = Math.floor(arrlen / 2)
+        //     if (q >= k - 1) {
+        //         return arr.sort((a, b) => {
+        //             return a - b
+        //         }).slice(0, k)
+        //     } else if (q <= k - 1) {
+        //         var maxk = arr.sort((a, b) => {
+        //             return b - a
+        //         }).slice(0, arrlen - k)
+        //         console.log(arr)
+
+        //         console.log(maxk)
+
+        //         arrnew = arr.filter(function (item) {
+        //             return maxk.indexOf(item) < 0;
+        //         })
+
+        //         return arrnew
+        //     }
+
+
+
+
+
+        // }
+
+
+
+        var car = [{
+                'name': 'benchi',
+                'price': 111
+
+            },
+            {
+                'name': 'baoma',
+                'price': 222
+
+            }, {
+                'name': 'dazhong',
+                'price': 33
+
+            }
+        ]
+
+        function max(arr) {
+
+            // return arr.reduce(function (pre, cur) {
+            //     return "nihao"
+
+
+            // }, 0);
+
+            return arr.reduce((pre, cur) => {
+                console.log(pre, cur)
+                return (pre += cur.price)
+            }, 0)
+
+        }
+
+
+
+        console.log(max(car))
+
+
+        // var nn = car.reduce((pre, cur) => {
+
+
+        //         return (pre += cur.price)
+        //     }, 0)
+
+        //     console.log(nn)
+    </script>
+
+
+</body>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .box {
+        width: 400px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        margin: 10px;
+    }
+
+    .list .name {
+        height: 60px;
+        line-height: 60px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: green;
+        margin: 5px;
+        border-radius: 20px;
+    }
+
+    .list .name>span {
+        width: 100px;
+        height: 20px;
+        background-color: green;
+        margin: 10px;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        line-height: 20px;
+    }
+
+    .list .name>a {
+        display: block;
+        text-decoration: none;
+        background: burlywood;
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 20px;
+        margin-right: 20px;
+    }
+
+    .selectList {
+        width: 200px;
+        border: 1px solid black;
+        height: 180px;
+        margin: auto;
+        font-size: 22px;
+        font-weight: 800;
+
+    }
+
+    .selectList>div {
+
+        width: 100%;
+        height: 120px;
+        border: 1px solid gray;
+    }
+</style>
+
+</html>
