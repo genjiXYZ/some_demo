@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+html {
+    height: 100%;
+    background-color: #fff;
+    min-width: 350px;
+}
+
+a,
+p {
+    color: #fff;
+    font-weight: 200;
+
+}
+
+.globalnav {
+    height: 5vh;
+    background-color: #181818;
+}
+
+.content {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.header {
+    display: none;
+}
+
+.list,
+.header {
+
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5vw;
+}
+
+
+.list li,
+.header li {
+    height: 5vh;
+    font-size: 14px;
+}
+
+.list li a,
+.header li a {
+    display: inline-block;
+    height: 5vh;
+    line-height: 5vh;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+.logo a {
+    width: 3vw;
+
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.logo a svg,
+.logo1 a svg {
+
+    width: 18px;
+    height: 5vh;
+
+}
+
+.menu svg {
+    width: 18px;
+    height: 5vh;
+}
+
+.more svg {
+    width: 18px;
+    height: 5vh;
+}
+
+.header {
+    display: none;
+}
+
+.list.list-active {
+    display: flex;
+}
+
+
+
+.main {
+    display: flex;
+    background-color: #FFFF;
+    max-width: 100%;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+    ;
+    width: 100%;
+    margin-top: 100px;
+
+}
+
+.main div {
+    text-align: center;
+    width: 20%;
+}
+
+.main img {
+    width: 100%;
+}
+
+
+.txt {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.txt div {
+    width: 40%;
+    margin-top: 200px;
+    margin-bottom: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.txt div:nth-child(1),
+.txt div:nth-child(3) {
+    margin-left: 5%;
+
+
+}
+
+.txt div:nth-child(2),
+.txt div:nth-child(4) {
+    margin-right: 5%;
+
+
+}
+
+
+
+
+.txt div p {
+    width: 100%;
+    color: #181818;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 5vh;
+        width: 100%;
+        background-color: #222222;
+        margin: 0;
+    }
+
+    .logo {
+        display: none;
+
+    }
+
+    .list li {
+        width: 80%;
+        border-top: 1px solid #555;
+        margin: 0 auto;
+    }
+
+    .list li:first-of-type {
+        border-top: none;
+    }
+
+
+    .header {
+        display: flex;
+    }
+
+    .main div {
+        width: 40%;
+    }
+
+    .txt div {
+        width: 80%;
+    }
+
+    .txt div:nth-child(1),
+    .txt div:nth-child(2),
+    .txt div:nth-child(3),
+    .txt div:nth-child(4) {
+        margin: 20px 10% 20px 10%;
+
+
+    }
+
+
+}
